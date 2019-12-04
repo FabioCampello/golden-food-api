@@ -1,4 +1,7 @@
-package com.golden.food.api.di;
+package com.golden.food.api.di.service;
+
+import com.golden.food.api.di.Cliente;
+import com.golden.food.api.di.Produto;
 
 public class EmissaoNotaFiscalService {
 	

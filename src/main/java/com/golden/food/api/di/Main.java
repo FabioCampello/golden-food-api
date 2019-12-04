@@ -1,5 +1,7 @@
 package com.golden.food.api.di;
 
+import com.golden.food.api.di.service.AtivacaoClienteService;
+
 public class Main {
 	
 	public static void main(String[] args) {
