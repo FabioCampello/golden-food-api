@@ -1,14 +1,20 @@
 package com.golden.food.api.di.service;
 
 import com.golden.food.api.di.Cliente;
+import com.golden.food.api.di.notificador.Notificador;
 
 public class AtivacaoClienteService {
 	
+	private Notificador notificador;
+	
+	public AtivacaoClienteService(Notificador notificador) {
+		this.notificador = notificador;
+	}
+	
 	public void ativar(Cliente cliente) {
 		cliente.ativar();
-//		NotificadorEmail notificador = new NotificadorEmail();
-		NotificadorSMS notificador = new NotificadorSMS();
-		notificador.notificar(cliente, "Seu cadastro no sistema está ativo.");
+		
+		this.notificador.notificar(cliente, "Seu cadastro no sistema está ativo.");
 	}
 
 }
