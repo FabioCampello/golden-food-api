@@ -1,4 +1,4 @@
-package com.golden.food.api.di;
+package com.golden.food.api.modelo;
 
 public class Cliente {
 
