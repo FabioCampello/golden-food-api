@@ -1,11 +1,8 @@
 package com.golden.food.api.service;
 
-import org.springframework.stereotype.Component;
-
 import com.golden.food.api.modelo.Cliente;
 import com.golden.food.api.notificador.Notificador;
 
-@Component
 public class AtivacaoClienteService {
 		
 	private Notificador notificadorEmail;
