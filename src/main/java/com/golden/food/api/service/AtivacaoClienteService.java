@@ -9,17 +9,18 @@ import com.golden.food.api.notificador.Notificador;
 @Component
 public class AtivacaoClienteService {
 	
-	@Autowired
-	private Notificador notificadorEmail;
-
-//	public AtivacaoClienteService(Notificador notificadorEmail) {
-//		this.notificadorEmail = notificadorEmail;
-//	}
+	@Autowired(required = false)
+	private Notificador notificador;
 
 	public void ativar(Cliente cliente) {
 		cliente.ativar();
+		
+		if(notificador != null) {
+			notificador.notificar(cliente,"Seu cadastro no sistema está ativo!");
+		} else {
+			System.out.println("Não existe notificador, mas o cliente foi ativado.");
+		}
 
-		this.notificadorEmail.notificar(cliente, "Seu cadastro no sistema está ativo.");
 	}
 
 }
