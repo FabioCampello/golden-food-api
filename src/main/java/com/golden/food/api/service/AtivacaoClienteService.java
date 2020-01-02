@@ -12,15 +12,16 @@ public class AtivacaoClienteService {
 	@Autowired(required = false)
 	private Notificador notificador;
 
-	public void ativar(Cliente cliente) {
+	public String ativar(Cliente cliente) {
 		cliente.ativar();
-		
+		String notificacao;
 		if(notificador != null) {
-			notificador.notificar(cliente,"Seu cadastro no sistema está ativo!");
+			notificacao = notificador.notificar(cliente,"Seu cadastro no sistema está ativo!");
 		} else {
 			System.out.println("Não existe notificador, mas o cliente foi ativado.");
+			notificacao = "Não existe notificador, mas o cliente foi ativado.";
 		}
-
+		return notificacao;
 	}
 
 }

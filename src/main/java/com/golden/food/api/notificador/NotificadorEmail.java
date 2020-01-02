@@ -8,8 +8,9 @@ import com.golden.food.api.modelo.Cliente;
 public class NotificadorEmail implements Notificador {
 
 	@Override
-	public void notificar(Cliente cliente, String mensagem) {
-		System.out.printf("Notificando %s através do e-mail %s: %s\n", cliente.getNome(), cliente.getEmail(), mensagem);
+	public String notificar(Cliente cliente, String mensagem) {
+		System.out.println(String.format("Notificando %s através do e-mail %s: %s", cliente.getNome(), cliente.getEmail(), mensagem));
+		return String.format("Notificando %s através do e-mail %s: %s", cliente.getNome(), cliente.getEmail(), mensagem);
 	}
 
 }

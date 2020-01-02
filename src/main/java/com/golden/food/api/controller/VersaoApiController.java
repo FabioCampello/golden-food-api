@@ -2,7 +2,7 @@ package com.golden.food.api.controller;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.golden.food.api.modelo.Cliente;
@@ -18,14 +18,15 @@ public class VersaoApiController {
 		this.ativacaoClienteService = ativacaoClienteService;
 	}
 
-	@GetMapping("/hello")
-	@ResponseBody
-	public String hello() {
-		
-		Cliente joao = new Cliente("Joao", "joao@xyz.com", "8598565-8871");
-		ativacaoClienteService.ativar(joao);
-		
-		return "Hello World!";
+	@GetMapping("/versao")
+	public String recuparaVersao() {
+		return "Versão: 0.0.1";
+	}
+	
+	@GetMapping("/ativarCliente")
+	public String ativarCliente(@RequestBody Cliente cliente) {
+		Cliente joao = new Cliente(cliente.getNome(), cliente.getEmail(), cliente.getTelefone());
+		return ativacaoClienteService.ativar(joao);
 	}
 	
 }
