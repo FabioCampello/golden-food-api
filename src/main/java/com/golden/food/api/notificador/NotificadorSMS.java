@@ -7,7 +7,7 @@ import com.golden.food.api.modelo.Cliente;
 @Component
 public class NotificadorSMS implements Notificador {
 
-	//@Override
+	@Override
 	public String notificar(Cliente cliente, String mensagem) {
 		System.out.println(String.format("Notificando %s por SMS através do telefone %s: %s", cliente.getNome(), cliente.getEmail(), mensagem));
 		return String.format("Notificando %s através do e-mail %s: %s", cliente.getNome(), cliente.getTelefone(), mensagem);
