@@ -1,9 +1,11 @@
 package com.golden.food.api.notificador;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.golden.food.api.modelo.Cliente;
 
+@Qualifier("urgencia")
 @Component
 public class NotificadorSMS implements Notificador {
 
